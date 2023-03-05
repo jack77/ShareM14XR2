@@ -28,8 +28,8 @@ mysql -u root -p spring_demo < spring_demo.txt
 ## Ubuntu でも　SqlDeveloper　使いたい
 ```
 mkdir dev
-sudo unzip -d ~/dev ~/downloads/sqldeveloper-22.2.1.234.1810-no-jre.zip
-sudo dpkg-deb -x ~/downloads/mysql-connector-j_8.0.32-1ubuntu22.10_all.deb ~/dev
+unzip -d ~/dev ~/downloads/sqldeveloper-22.2.1.234.1810-no-jre.zip
+dpkg-deb -x ~/downloads/mysql-connector-j_8.0.32-1ubuntu22.10_all.deb ~/dev
 // SQL Developer
 /home/jack/dev/sqldeveloper/sqldeveloper.sh
 
