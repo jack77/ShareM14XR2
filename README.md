@@ -40,3 +40,7 @@ ls -al $HOME/dev/usr/share/java/mysql-connector-j-8.0.32.jar
 // Cpp Connector
 dpkg-deb -x $HOME/downloads/libmysqlcppconn9_8.0.31-1ubuntu22.04_amd64.deb ~/dev
 ```
+## M14xr2 戦いの舞台は整ったようだな
+- C++ でMySQLに接続（spring_demo)。
+- 任意のレコードの登録（person）。
+- タイム計測。
