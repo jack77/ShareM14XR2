@@ -28,6 +28,13 @@ mysql -u root -p spring_demo < spring_demo.txt
 mkdir dev
 sudo unzip -d ~/dev ~/downloads/sqldeveloper-22.2.1.234.1810-no-jre.zip
 sudo dpkg-deb -x ~/downloads/mysql-connector-j_8.0.32-1ubuntu22.10_all.deb ~/dev
-
+// SQL Developer
 /home/jack/dev/sqldeveloper/sqldeveloper.sh
+
+// JDBC Connector
+dpkg-deb -x ~/downloads/mysql-connector-j_8.0.32-1ubuntu22.10_all.deb ~/dev
+ls -al $HOME/dev/usr/share/java/mysql-connector-j-8.0.32.jar
+
+// Cpp Connector
+dpkg-deb -x $HOME/downloads/libmysqlcppconn9_8.0.31-1ubuntu22.04_amd64.deb ~/dev
 ```
