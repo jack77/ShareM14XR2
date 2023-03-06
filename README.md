@@ -44,3 +44,18 @@ dpkg-deb -x $HOME/downloads/libmysqlcppconn9_8.0.31-1ubuntu22.04_amd64.deb ~/dev
 - C++ でMySQLに接続（spring_demo)。
 - 任意のレコードの登録（person）。
 - タイム計測。
+
+## 全然整ってなかったね :)
+次のコマンドを実行して、C++のMySQLドライバとヘッダが利用可能になるはず。
+```
+sudo apt --fix-broken install ./mysql-community-client-plugins_8.0.32-1ubuntu22.04_amd64.deb
+sudo apt --fix-broken install ./libmysqlcppconn8-2_8.0.32-1ubuntu22.04_amd64.deb
+$ dpkg -L libmysqlcppconn8-2
+.
+.
+.
+/usr/lib/x86_64-linux-gnu/libmysqlcppconn8.so.2
+jack@jack-M14xR2:~/downloads$ 
+sudo apt --fix-broken install ./libmysqlcppconn-dev_8.0.32-1ubuntu22.04_amd64.deb
+$ dpkg -L libmysqlcppconn-dev
+```
