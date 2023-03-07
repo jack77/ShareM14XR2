@@ -66,6 +66,18 @@ jack@jack-M14xR2:~/downloads$
 sudo apt --fix-broken install ./libmysqlcppconn-dev_8.0.32-1ubuntu22.04_amd64.deb
 $ dpkg -L libmysqlcppconn-dev
 ```
+## C++ で MySQL に接続
+
+とてつもなく、参考になったサイト、まんまやりました。
+
+https://stackoverflow.com/questions/65748942/x-devapi-mysqlxsession-over-linux-socket-fails-with-cdk-error-unexpected-m
+```
+// MySQL で次のコマンドを行った。
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+mysql> show variables like 'mysqlx_socket';
+```
 ## C++ でMySQLに接続できたよ
 ```
 jack@jack-M14xR2:~/dev$ g++ -std=c++11 -I/usr/include/mysql-cppconn-8/ -L/usr/lib/x86_64-linux-gnu m14xr2-conn-mysql.cpp -lmysqlcppconn8 -o m14xr2-conn-mysql
