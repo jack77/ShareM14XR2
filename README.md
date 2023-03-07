@@ -80,19 +80,19 @@ GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 mysql> show variables like 'mysqlx_socket';
 ```
-## ホストとDocker内のMySQLとの共有ディレクトリ
+## ホストと Docker 内の MySQL との共有ディレクトリ
 この後に行うC++の接続のために必要だったこと。
 ```
 sudo mkdir -p -v /tmp/ubuntu-mysql-2/data
 ```
-## 共有ディレクトリを指定したDocker run の実行
+## 共有ディレクトリを指定した docker run の実行
 MySQL側の　/var/run/mysqld　が非常に重要。
 
 ここの配下に作られる mysqlx.sock を C++ のソースファイルから Read する必要がある。
 ```
 sudo docker run --name ubuntu-mysql-2 -e MYSQL_ROOT_PASSWORD=jack1234 -p 127.0.0.1:3306:3306 -v /tmp/ubuntu-mysql-2/data:/var/run/mysqld -d mysql:8.0.32-debian
 ```
-## C++ でMySQLに接続できたよ
+## C++ で MySQL に接続できたよ
 ```
 jack@jack-M14xR2:~/dev$ g++ -std=c++11 -I/usr/include/mysql-cppconn-8/ -L/usr/lib/x86_64-linux-gnu m14xr2-conn-mysql.cpp -lmysqlcppconn8 -o m14xr2-conn-mysql
 jack@jack-M14xR2:~/dev$ ./m14xr2-conn-mysql 
