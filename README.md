@@ -25,7 +25,7 @@ exit
 sudo docker cp $HOME/downloads/spring_demo.txt ubuntu-mysql-2:/spring_demo.txt
 mysql -u root -p spring_demo < spring_demo.txt
 ```
-## Ubuntu でも　SqlDeveloper　使いたい
+## Ubuntu でも SqlDeveloper 使いたい
 ```
 mkdir dev
 unzip -d ~/dev ~/downloads/sqldeveloper-22.2.1.234.1810-no-jre.zip
@@ -65,6 +65,8 @@ $ dpkg -L libmysqlcppconn8-2
 jack@jack-M14xR2:~/downloads$ 
 sudo apt --fix-broken install ./libmysqlcppconn-dev_8.0.32-1ubuntu22.04_amd64.deb
 $ dpkg -L libmysqlcppconn-dev
+.
+.
 ```
 ## C++ で MySQL に接続
 
@@ -77,6 +79,18 @@ CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 mysql> show variables like 'mysqlx_socket';
+```
+## ホストとDocker内のMySQLとの共有ディレクトリ
+この後に行うC++の接続のために必要だったこと。
+```
+sudo mkdir -p -v /tmp/ubuntu-mysql-2/data
+```
+## 共有ディレクトリを指定したDocker run の実行
+MySQL側の　/var/run/mysqld　が非常に重要。
+
+ここの配下に作られる mysqlx.sock を C++ のソースファイルから Read する必要がある。
+```
+sudo docker run --name ubuntu-mysql-2 -e MYSQL_ROOT_PASSWORD=jack1234 -p 127.0.0.1:3306:3306 -v /tmp/ubuntu-mysql-2/data:/var/run/mysqld -d mysql:8.0.32-debian
 ```
 ## C++ でMySQLに接続できたよ
 ```
