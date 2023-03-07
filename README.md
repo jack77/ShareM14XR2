@@ -40,7 +40,7 @@ ls -al $HOME/dev/usr/share/java/mysql-connector-j-8.0.32.jar
 // Cpp Connector
 dpkg-deb -x $HOME/downloads/libmysqlcppconn9_8.0.31-1ubuntu22.04_amd64.deb ~/dev
 ```
-## Alienware M15 R7
+## Alienware M15 R7 And Java
 ```
 // 12th Gen Intel(R) Core(TM) i7-12700H   2.30 GHz And Java
 test_MockService_GetPerson_2nd_Time()	0.042s	passed
