@@ -72,4 +72,27 @@ jack@jack-M14xR2:~/dev$ g++ -std=c++11 -I/usr/include/mysql-cppconn-8/ -L/usr/li
 jack@jack-M14xR2:~/dev$ ./m14xr2-conn-mysql 
 If you read this message, you did connected by C++. Huge Congraturations !!
 jack@jack-M14xR2:~/dev$
+
+// 以下が、そのソースだよ。
+/**
+ * 最初はRDBMS、MySQLに接続することからだよね。
+*/
+#include <iostream>
+#include <sstream>
+#include <memory>
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_driver.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_connection.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_error.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/statement.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/resultset.h"
+
+ #include "/usr/include/mysql-cppconn-8/mysqlx/xdevapi.h"
+
+using namespace std;
+
+int main() {
+        mysqlx::Session sess("mysqlx://user:password@%2Ftmp%2Fubuntu-mysql-2%2Fdata%2Fmysqlx.sock");
+        cout << "If you read this message, you did connected by C++. Huge Congraturations !!" << endl;
+        return 0;
+}
 ```
