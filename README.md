@@ -96,3 +96,14 @@ int main() {
         return 0;
 }
 ```
+## M14xr2 Intel CPU 3rd GEN And C++ これが初めての計測結果だ。勝ったのか？ あってるのか？
+```
+jack@jack-M14xR2:~/dev$ ./m14xr2-conn-mysql 
+If you read this message, you did connected by C++. Huge Congraturations !!
+your schema is spring_demo
+person count is 4
+row is null ? 0
+jack@loki.1677824762327.org
+passed 0.002161sec.
+jack@jack-M14xR2:~/dev$ 
+```
