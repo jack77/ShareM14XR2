@@ -107,3 +107,46 @@ jack@loki.1677824762327.org
 passed 0.002161sec.
 jack@jack-M14xR2:~/dev$ 
 ```
+## これは、最初の計測時のソースだ。
+```
+/**
+ * 最初はRDBMS、MySQLに接続することからだよね。
+*/
+#include <iostream>
+#include <sstream>
+#include <memory>
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_driver.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_connection.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/mysql_error.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/statement.h"
+#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/resultset.h"
+
+#include "/usr/include/mysql-cppconn-8/mysqlx/xdevapi.h"
+#include "/usr/include/mysql-cppconn-8/mysqlx/devapi/collection_crud.h"
+#include <time.h>
+
+using namespace std;
+
+int main() {
+    clock_t start = clock();
+    mysqlx::Session sess("mysqlx://user:password@%2Ftmp%2Fubuntu-mysql-2%2Fdata%2Fmysqlx.sock");
+    cout << "If you read this message, you did connected by C++. Huge Congraturations !!" << endl;
+
+    mysqlx::Schema schema = sess.getSchema("spring_demo");
+    string schemaName = schema.getName();
+    cout << "your schema is " << schemaName << endl;
+    // mysqlx::Collection person = schema.getCollection("person");
+    // mysqlx::Table person = schema.getCollectionAsTable("person");
+    mysqlx::Table person = schema.getTable("person");
+    cout << "person count is " << person.count() << endl;
+    mysqlx::TableSelect selectOpe = person.select("email").where("pid=933");
+    mysqlx::Row row = selectOpe.execute().fetchOne();
+    cout << "row is null ? " << row.isNull() << endl;
+    mysqlx::Value val = row.get(0);
+    cout << val << endl;    
+    sess.close();
+    clock_t end = clock();
+    cout << "passed " << (double)(end-start)/CLOCKS_PER_SEC << "sec." << endl;
+    return 0;
+}
+```
