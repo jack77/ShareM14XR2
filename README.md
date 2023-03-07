@@ -66,3 +66,10 @@ jack@jack-M14xR2:~/downloads$
 sudo apt --fix-broken install ./libmysqlcppconn-dev_8.0.32-1ubuntu22.04_amd64.deb
 $ dpkg -L libmysqlcppconn-dev
 ```
+## C++ でMySQLに接続できたよ
+```
+jack@jack-M14xR2:~/dev$ g++ -std=c++11 -I/usr/include/mysql-cppconn-8/ -L/usr/lib/x86_64-linux-gnu m14xr2-conn-mysql.cpp -lmysqlcppconn8 -o m14xr2-conn-mysql
+jack@jack-M14xR2:~/dev$ ./m14xr2-conn-mysql 
+If you read this message, you did connected by C++. Huge Congraturations !!
+jack@jack-M14xR2:~/dev$
+```
