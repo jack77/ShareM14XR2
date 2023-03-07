@@ -141,14 +141,14 @@ jack@jack-M14xR2:~/dev$
 #include <iostream>
 #include <sstream>
 #include <memory>
-#include "/usr/include/mysql-cppconn-8/jdbc/mysql_driver.h"
-#include "/usr/include/mysql-cppconn-8/jdbc/mysql_connection.h"
-#include "/usr/include/mysql-cppconn-8/jdbc/mysql_error.h"
-#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/statement.h"
-#include "/usr/include/mysql-cppconn-8/jdbc/cppconn/resultset.h"
+#include "jdbc/mysql_driver.h"
+#include "jdbc/mysql_connection.h"
+#include "jdbc/mysql_error.h"
+#include "jdbc/cppconn/statement.h"
+#include "jdbc/cppconn/resultset.h"
 
-#include "/usr/include/mysql-cppconn-8/mysqlx/xdevapi.h"
-#include "/usr/include/mysql-cppconn-8/mysqlx/devapi/collection_crud.h"
+#include "mysqlx/xdevapi.h"
+#include "mysqlx/devapi/collection_crud.h"
 #include <time.h>
 
 using namespace std;
@@ -161,8 +161,6 @@ int main() {
     mysqlx::Schema schema = sess.getSchema("spring_demo");
     string schemaName = schema.getName();
     cout << "your schema is " << schemaName << endl;
-    // mysqlx::Collection person = schema.getCollection("person");
-    // mysqlx::Table person = schema.getCollectionAsTable("person");
     mysqlx::Table person = schema.getTable("person");
     cout << "person count is " << person.count() << endl;
     mysqlx::TableSelect selectOpe = person.select("email").where("pid=933");
@@ -175,4 +173,10 @@ int main() {
     cout << "passed " << (double)(end-start)/CLOCKS_PER_SEC << "sec." << endl;
     return 0;
 }
+```
+# g++ コンパイル
+これで、ヘッダファイルの場所を指定しているのだから、ソース内でフルパス指定していると、問題あるんじゃないのかな。
+（はい、もうやめました。Visual Studio Code にしかられたからさ、最初はね。）
+```
+ g++ -std=c++11 -I/usr/include/mysql-cppconn-8/ -L/usr/lib/x86_64-linux-gnu m14xr2-conn-mysql.cpp -lmysqlcppconn8 -o m14xr2-conn-mysql
 ```
