@@ -49,7 +49,7 @@ test_MockService_GetPerson_First_Time()	0.256s	passed
 
 ## M14xr2 戦いの舞台は整ったようだな
 - C++ でMySQLに接続（spring_demo)。
-- 任意のレコードの登録（person）。
+- 任意のレコードの取得（person）。
 - タイム計測。
 
 ## 全然整ってなかったね :)
