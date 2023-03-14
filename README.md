@@ -47,7 +47,7 @@ test_MockService_GetPerson_2nd_Time()	0.042s	passed
 test_MockService_GetPerson_First_Time()	0.256s	passed
 ```
 
-## M14xr2 戦いの舞台は整ったようだな
+## M14xR2 戦いの舞台は整ったようだな
 - C++ でMySQLに接続（spring_demo)。
 - 任意のレコードの取得（person）。
 - タイム計測。
