@@ -20,6 +20,7 @@ Intel 12th GEN CPU は Java、Intel 3rd GEN CPU は C++ 。
 
 RDBMS への接続、任意のレコードの取得までのラウンドトリップ時間。それを各マシンで計測、速い方が勝ち。
 
+# Docker
 情報共有だよ。
 ```
 docker run --name win-mysql-2 -e MYSQL_ROOT_PASSWORD=jack1234 -p 127.0.0.1:3306:3306 -d mysql:8.0.32-debian
