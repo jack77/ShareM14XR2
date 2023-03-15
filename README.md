@@ -122,7 +122,7 @@ int main() {
         return 0;
 }
 ```
-## M14xr2 Intel CPU 3rd GEN And C++ これが初めての計測結果だ。勝ったのか？ あってるのか？
+## M14xR2 Intel CPU 3rd GEN And C++ これが初めての計測結果だ。勝ったのか？ あってるのか？
 ```
 jack@jack-M14xR2:~/dev$ ./m14xr2-conn-mysql 
 If you read this message, you did connected by C++. Huge Congraturations !!
